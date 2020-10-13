@@ -207,3 +207,31 @@ A sample JSON response will look something like this:
     "url": "http://localhost:3000/friendships/7.json"
 }
 ```
+
+#### Expert search
+This API provides a user to search for experts in a particular topic who are not direct friends with the user but are connected via a mutual friend.
+Endpoint: GET: `/search_experts`<br/>
+Required parameters: user_id(User who wants to search for experts), query(String containing expert topic keyword)
+
+A sample request looks something like this:
+```
+GET http://localhost:3000/search_experts?user_id=1&query=video
+```
+
+A sample JSON response will look something like this: 
+```
+[
+    "Sourabh->Vikas->Say it with video"
+]
+```
+The API returns a list of search results in the following format: **Mutual friend of expert -> Expert in the searched topic -> Topic of expertise**
+
+### Background jobs
+The API performs the following 2 tasks in the background during user creation with the help of Sidekiq.
+1. **ScrapeWebHeadingsWorker**: This worker scrapes heading tags(h1, h2 and h3) from the created user's web url and saves it to the expert_topics DB as the user's topic of expertise.
+2. **WebUrlShortener**: This worker shortens user's web urls with the help of (Bitly APIs)[https://github.com/philnash/bitly]
+
+### Future enhancements
+1. Adding authorization and authentication mechanism.
+2. Pagination for all listing APIs.
+3. Adding unit tests.
