@@ -14,7 +14,7 @@ Refer the following [guide](https://www.postgresql.org/download/macosx/) for ins
 3. Please refer the following [guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) to install NodeJS and NPM.
 You can also install Yarn with the help of this [page](https://classic.yarnpkg.com/en/docs/install/#debian-stable)
 4. Install redis server using this [guide](https://redis.io/topics/quickstart).
-5. Clone the repository
+5. Clone the repository.
 
 ### Setup
 
@@ -36,7 +36,7 @@ development:
   database: <%= ENV["DEV_DB_NAME"] || 'expert_search_backend_development' %>
 ```
 3. Once done, run the following commands:
-a. `rake db:create` to create the development database.
+a. `rake db:create` to create the development database.<br/>
 b. `rake db:migrate` to create the `users`, `friendships` and `expert_topics` tables.
 4. Make sure the **BITLY_TOKEN** environment variable is set on your machine.
 5. Once all of these steps are performed, start the server using the command: `rails s`
@@ -86,7 +86,7 @@ A sample JSON response will look something like this:
 }
 ```
 
-2. List users: This endpoint returns a list of users along with each user's short web url,  friend count.
+2. List users: This endpoint returns a list of users along with each user's short web url, friend count.<br/>
 Endpoint: GET: `/users`<br/>
 
 A sample request looks something like this:
@@ -111,7 +111,7 @@ A sample JSON response will look something like this:
 ]
 ```
 
-3. Get single user: This endpoint returns a user based on its id and returns user details along with list of topics the user is an expert in and list of friend profile links.
+3. Get single user: This endpoint returns a user based on its id and returns user details along with list of topics the user is an expert in and list of friend profile links.<br/>
 Endpoint: GET: `/users/:id`<br/>
 
 A sample request looks something like this:
@@ -173,7 +173,7 @@ A sample JSON response will look something like this:
 ```
 
 #### Friendships
-This API provides us with the functionality to connect any 2 users in the app.
+This API provides us with the functionality to connect any 2 users in the app.<br/>
 1. Create friends: An endpoint to connect two users. The request sender and request receiver ids should be passed in order to create a friendship record.
 Endpoint: POST: `/friendships`<br/>
 Required Parameters: request_sender_id, request_receiver_id<br/>
@@ -209,9 +209,9 @@ A sample JSON response will look something like this:
 ```
 
 #### Expert search
-This API provides a user to search for experts in a particular topic who are not direct friends with the user but are connected via a mutual friend.
+This API provides a user to search for experts in a particular topic who are not direct friends with the user but are connected via a mutual friend.<br/>
 Endpoint: GET: `/search_experts`<br/>
-Required parameters: user_id(User who wants to search for experts), query(String containing expert topic keyword)
+Required parameters: user_id(User who wants to search for experts), query(String containing expert topic keyword)<br/>
 
 A sample request looks something like this:
 ```
