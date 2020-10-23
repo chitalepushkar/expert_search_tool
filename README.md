@@ -229,7 +229,7 @@ The API returns a list of search results in the following format: **Mutual frien
 ### Background jobs
 The API performs the following 2 tasks in the background during user creation with the help of Sidekiq.
 1. **ScrapeWebHeadingsWorker**: This worker scrapes heading tags(h1, h2 and h3) from the created user's web url and saves it to the expert_topics DB as the user's topic of expertise.
-2. **WebUrlShortener**: This worker shortens user's web urls with the help of (Bitly APIs)[https://github.com/philnash/bitly]
+2. **WebUrlShortener**: This worker shortens user's web urls with the help of [Bitly APIs](https://github.com/philnash/bitly)
 
 ### Future enhancements
 1. Adding authorization and authentication mechanism.
